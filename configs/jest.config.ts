@@ -1,13 +1,17 @@
 import type { Config } from 'jest';
-import {defaults} from 'jest-config';
+import { defaults } from 'jest-config';
+
+const isCoverageMode = Boolean(process.env.COVERAGE_MODE);
 
 const config: Config = {
   ...defaults,
+  rootDir: '../',
   preset: 'ts-jest',
-  collectCoverage: true,
+  collectCoverage: isCoverageMode,
   collectCoverageFrom: [
-    './src/**',
+    '<rootDir>/src/**',
   ],
+  coverageDirectory: '<rootDir>/test-coverage-report',
   globals: {
     'ts-jest': {
       isolatedModules: true,
@@ -21,6 +25,9 @@ const config: Config = {
     '^@entities/(.*)$': '<rootDir>/src/entities/$1',
     '^@shared/(.*)$': '<rootDir>/src/shared/$1',
   },
+  testMatch: [
+    '<rootDir>/src/**/*.(test|spec).(ts|tsx|js|jsx)',
+  ],
 };
 
 export default config;

@@ -3,3 +3,4 @@ build
 coverage
 storybook-static
 .zshrcexport
+test-coverage-report

@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const Button: React.FC<Props> = ({ text, onClick }) => {
-    return <div onClick={onClick}>
+    return <div onClick={onClick} style={{ background: 'red' }}>
         Button with {text}
     </div>;
 };

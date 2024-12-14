@@ -36,17 +36,17 @@ export default [
           ["@entities", "./src/entities"],
           ["@shared", "./src/shared"],
         ],
-        "extensions": [".ts", ".tsx"]
+        "extensions": [".ts", ".tsx"],
       },
       'node': {
         'extensions': [
           '.ts',
-          '.tsx'
+          '.tsx',
         ],
       },
     },
     react: {
-      version: "detect"
+      version: "detect",
     },
   },
   },
@@ -133,61 +133,22 @@ export default [
         "error", 
         {
           zones: [
-            {
-              target: './src/widgets',
-              from: ['./src/app', './src/pages'],
-              message: '',
-            },
-          ],
-        },
-      ],
-      "import/no-restricted-paths": [
-        "error", 
-        {
-          zones: [
-            {
-              target: './src/pages',
-              from: ['./src/app'],
-              message: '',
-            },
-          ],
-        },
-      ],
-      "import/no-restricted-paths": [
-        "error", 
-        {
-          zones: [
+            { target: './src/pages', from: ['./src/app'], message: 'FSD violation' },
+            { target: './src/widgets', from: ['./src/app', './src/pages'], message: 'FSD violation' },
             {
               target: './src/features',
               from: ['./src/app', './src/pages', './src/widgets'],
-              except: [],
-              message: '',
+              message: 'FSD violation',
             },
-          ],
-        },
-      ],
-      "import/no-restricted-paths": [
-        "error", 
-        {
-          zones: [
             {
               target: './src/entities',
               from: ['./src/app', './src/pages', './src/widgets', './src/features'],
-              except: [],
-              message: '',
+              message: 'FSD violation',
             },
-          ],
-        },
-      ],
-      "import/no-restricted-paths": [
-        "error", 
-        {
-          zones: [
             {
               target: './src/shared',
               from: ['./src/app', './src/pages', './src/widgets', './src/features', './src/entities'],
-              except: [],
-              message: '',
+              message: 'FSD violation',
             },
           ],
         },
