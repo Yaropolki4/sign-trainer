@@ -16,6 +16,3 @@ build-project:
   stage: build
   script:
     - pnpm build
-
-/Users/yaroslav/builds/t3_64rXZW/0/yaropolki41/sign-teacher
-/Users/yaroslav/builds/t3_64rXZW/0/yaropolki41/sign-teacher/.git/
