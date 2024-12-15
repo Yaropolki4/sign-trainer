@@ -1,5 +1,3 @@
-import { isDev } from '../utils.js';
-
 export const tsRule = {
     test: /\.tsx?$/,
     use: [
@@ -7,7 +5,7 @@ export const tsRule = {
         {
             loader: 'ts-loader',
             options: {
-              transpileOnly: isDev,
+              transpileOnly: true,
               compilerOptions: {
                 noEmit: false,
               }
