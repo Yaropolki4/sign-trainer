@@ -2,6 +2,7 @@ build-job:
   stage: build
   script:
     - pwd
+    - which npm
     - npm -v
     - pnpm -v
     - pnpm build
