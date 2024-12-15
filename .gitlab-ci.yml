@@ -1,18 +1,13 @@
-build-job:
+stages:
+  - install
+  - build
+
+install-dependencies:
+  stage: install
+  script:
+    - pnpm install
+
+build-project:
   stage: build
   script:
-    - pwd
-    - which npm
-    - npm -v
-    - pnpm -v
     - pnpm build
-
-tsc-job:
-  stage: test
-  script:
-    - tsc
-
-eslint-job:
-  stage: test
-  script:
-    - pnpm lint
