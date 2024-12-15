@@ -2,6 +2,11 @@ stages:
   - install
   - build
 
+cache:
+  key: $CI_COMMIT_REF_SLUG
+  paths:
+    - node_modules/
+
 install-dependencies:
   stage: install
   script:
@@ -11,3 +16,6 @@ build-project:
   stage: build
   script:
     - pnpm build
+
+/Users/yaroslav/builds/t3_64rXZW/0/yaropolki41/sign-teacher
+/Users/yaroslav/builds/t3_64rXZW/0/yaropolki41/sign-teacher/.git/
