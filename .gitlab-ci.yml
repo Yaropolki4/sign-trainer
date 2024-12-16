@@ -57,8 +57,6 @@ chromatic_build:
   environment:
     name: chromatic_build
     url: $BUILD_URL
-  rules:
-    - if: $BUILD_URL
 
 storybook_preview:
   stage: test
@@ -70,5 +68,3 @@ storybook_preview:
   environment:
     name: storybook_preview
     url: $STORYBOOK_URL
-  rules:
-    - if: $STORYBOOK_URL
