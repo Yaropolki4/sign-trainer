@@ -40,8 +40,8 @@ generate_chromatic_links:
     - echo "$OUTPUT" | tee chromatic-log.txt
     - BUILD_URL=$(echo "$OUTPUT" | grep -Eo 'https://www.chromatic.com/build[^ ]+')
     - STORYBOOK_URL=$(echo "$OUTPUT" | grep -Eo 'https://[0-9a-f]{24}-[a-z0-9]{10}\.chromatic\.com')
-    - echo "Chromatic Build URL: $BUILD_URL"
-    - echo "Storybook URL: $STORYBOOK_URL"
+    - echo "Chromatic Build URL $BUILD_URL"
+    - echo "Storybook URL $STORYBOOK_URL"
   artifacts:
     reports:
       dotenv: chromatic.env
