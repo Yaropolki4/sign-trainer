@@ -32,3 +32,8 @@ unit:
   stage: test
   script:
     - pnpm test:no-watch
+
+storybook:
+  stage: test
+  script:
+    - pnpm chromatic

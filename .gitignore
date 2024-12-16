@@ -5,3 +5,4 @@ storybook-static
 .zshrcexport
 test-coverage-report
 .DS_Store
+build-storybook.log

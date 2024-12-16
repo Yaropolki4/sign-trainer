@@ -17,7 +17,7 @@
     "test:no-watch": "pnpm jest --config configs/jest.config.ts",
     "storybook": "storybook dev -p 6006 --config-dir configs/.storybook",
     "build-storybook": "storybook build --config-dir configs/.storybook --output-dir build/storybook-static",
-    "chromatic": "npx chromatic --project-token=CHROMATIC_TOKEN",
+    "chromatic": "npx chromatic",
     "test-coverage": "COVERAGE_MODE=true pnpm jest --config configs/jest.config.ts",
     "tsc": "tsc"
   },
