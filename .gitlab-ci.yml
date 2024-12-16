@@ -38,8 +38,8 @@ generate_chromatic_links:
   script:
     - OUTPUT=$(npx chromatic)
     - echo "$OUTPUT" | tee chromatic-log.txt
-    - BUILD_URL=$(echo "$OUTPUT" | grep -Eo 'https://www.chromatic.com/build[^ ]+ | head -n 1')
-    - STORYBOOK_URL=$(echo "$OUTPUT" | grep -Eo 'https://[0-9a-f]{24}-[a-z0-9]{10}\.chromatic\.com | head -n 1')
+    - BUILD_URL=$(echo "$OUTPUT" | grep -Eo 'https://www.chromatic.com/build[^ ]+' | head -n 1)
+    - STORYBOOK_URL=$(echo "$OUTPUT" | grep -Eo 'https://[0-9a-f]{24}-[a-z0-9]{10}\.chromatic\.com' | head -n 1)
     - echo "BUILD_URL=$BUILD_URL" >> chromatic.env
     - echo "STORYBOOK_URL=$STORYBOOK_URL" >> chromatic.env
     - cat chromatic.env
