@@ -33,7 +33,39 @@ unit:
   script:
     - pnpm test:no-watch
 
-storybook:
+generate_chromatic_links:
   stage: test
   script:
-    - pnpm chromatic
+    - OUTPUT=$(npx chromatic)
+    - echo "$OUTPUT" | tee chromatic-log.txt
+    - BUILD_URL=$(echo "$OUTPUT" | grep -Eo 'https://www.chromatic.com/build[^ ]+')
+    - STORYBOOK_URL=$(echo "$OUTPUT" | grep -Eo 'https://[0-9a-f]{24}-[a-z0-9]{10}\.chromatic\.com')
+    - echo "Chromatic Build URL: $BUILD_URL"
+    - echo "Storybook URL: $STORYBOOK_URL"
+  artifacts:
+    reports:
+      dotenv: chromatic.env
+
+chromatic_build:
+  stage: test
+  dependencies:
+    - generate_chromatic_links
+  script:
+    - echo "Opening Chromatic Build"
+  environment:
+    name: chromatic_build
+    url: $BUILD_URL
+  rules:
+    - if: $BUILD_URL
+
+storybook_preview:
+  stage: test
+  dependencies:
+    - generate_chromatic_links
+  script:
+    - echo "Opening Storybook Preview"
+  environment:
+    name: storybook_preview
+    url: $STORYBOOK_URL
+  rules:
+    - if: $STORYBOOK_URL
