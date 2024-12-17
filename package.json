@@ -19,7 +19,8 @@
     "build-storybook": "storybook build --config-dir configs/.storybook --output-dir build/storybook-static",
     "chromatic": "npx chromatic",
     "test-coverage": "COVERAGE_MODE=true pnpm jest --config configs/jest.config.ts",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "devDependencies": {
@@ -52,6 +53,7 @@
     "css-loader": "^7.1.2",
     "cssnano": "^7.0.6",
     "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-plugin-import": "^2.31.0",
@@ -64,6 +66,7 @@
     "jest-config": "^29.7.0",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss-loader": "^8.1.1",
+    "prettier": "3.4.2",
     "sass-loader": "^16.0.4",
     "storybook": "^8.4.7",
     "style-loader": "^4.0.0",

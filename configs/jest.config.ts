@@ -8,9 +8,7 @@ const config: Config = {
   rootDir: '../',
   preset: 'ts-jest',
   collectCoverage: isCoverageMode,
-  collectCoverageFrom: [
-    '<rootDir>/src/**',
-  ],
+  collectCoverageFrom: ['<rootDir>/src/**'],
   coverageDirectory: '<rootDir>/test-coverage-report',
   globals: {
     'ts-jest': {
@@ -25,9 +23,7 @@ const config: Config = {
     '^@entities/(.*)$': '<rootDir>/src/entities/$1',
     '^@shared/(.*)$': '<rootDir>/src/shared/$1',
   },
-  testMatch: [
-    '<rootDir>/src/**/*.(test|spec).(ts|tsx|js|jsx)',
-  ],
+  testMatch: ['<rootDir>/src/**/*.(test|spec).(ts|tsx|js|jsx)'],
 };
 
 export default config;

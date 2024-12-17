@@ -13,18 +13,20 @@ function formatTags(tags) {
 }
 
 export const htmlWebpackPlugin = new HTMLWebpackPlugin({
-    templateContent: ({ htmlWebpackPlugin }) => {
-      const spritePath = path.join(process.cwd(), './build/app.svg');
-      const spriteContent = fs.existsSync(spritePath) ? fs.readFileSync(spritePath, 'utf-8') : '';
-      const cssTags = htmlWebpackPlugin.files.css.map((css) => {
-        return `<link href="${css}" rel="stylesheet">`
-      });
+  templateContent: ({ htmlWebpackPlugin }) => {
+    const spritePath = path.join(process.cwd(), './build/app.svg');
+    const spriteContent = fs.existsSync(spritePath)
+      ? fs.readFileSync(spritePath, 'utf-8')
+      : '';
+    const cssTags = htmlWebpackPlugin.files.css.map(css => {
+      return `<link href="${css}" rel="stylesheet">`;
+    });
 
-      const scriptTags = htmlWebpackPlugin.files.js.map((js) => {
-        return `<script src="${js}"></script>`
-      });
+    const scriptTags = htmlWebpackPlugin.files.js.map(js => {
+      return `<script src="${js}"></script>`;
+    });
 
-      return `
+    return `
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -42,5 +44,5 @@ export const htmlWebpackPlugin = new HTMLWebpackPlugin({
         </body>
         </html>
       `;
-    },
+  },
 });

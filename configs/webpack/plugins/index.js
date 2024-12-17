@@ -5,9 +5,9 @@ import { miniCssExtractPlugin } from './miniCssExtractPlugin.js';
 import { svgChunkWebpackPlugin } from './svgChunkWebpackPlugin.js';
 
 export const plugins = [
-    definePlugin,
-    htmlWebpackPlugin,
-    miniCssExtractPlugin,
-    svgChunkWebpackPlugin,
-    process.env.BUNDLE_ANALYZER_MODE && bundleAnalyzerPlugin,
+  definePlugin,
+  htmlWebpackPlugin,
+  miniCssExtractPlugin,
+  svgChunkWebpackPlugin,
+  process.env.BUNDLE_ANALYZER_MODE && bundleAnalyzerPlugin,
 ].filter(Boolean);

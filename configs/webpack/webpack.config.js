@@ -9,42 +9,42 @@ const output = path.join(process.cwd(), './', 'build/web');
 const minimizer = [];
 
 if (!isDev) {
-    minimizer.push(new TerserPlugin());
+  minimizer.push(new TerserPlugin());
 }
 
 const config = {
-    devServer: {
-        static: {
-            directory: output,
-        },
-        compress: true,
-        port: process.env.PORT ?? 4000,
-        open: true,
-        client: {
-            overlay: false,
-        }
+  devServer: {
+    static: {
+      directory: output,
     },
-    entry: {
-        app: './src/index.tsx',
+    compress: true,
+    port: process.env.PORT ?? 4000,
+    open: true,
+    client: {
+      overlay: false,
     },
-    output: {
-        path: output,
-        filename: '[name].js',
-        clean: true,
-    },
-    resolve: {
-        extensions: ['.ts', '.js', '.tsx'],
-    },
-    devtool: isDev ? 'inline-source-map' : 'source-map',
-    plugins,
-    module: {
-        rules,
-    },
-    mode: isDev ? 'development' : 'production',
-    optimization: {
-        minimize: !isDev,
-        minimizer,
-    },
-}
+  },
+  entry: {
+    app: './src/index.tsx',
+  },
+  output: {
+    path: output,
+    filename: '[name].js',
+    clean: true,
+  },
+  resolve: {
+    extensions: ['.ts', '.js', '.tsx'],
+  },
+  devtool: isDev ? 'inline-source-map' : 'source-map',
+  plugins,
+  module: {
+    rules,
+  },
+  mode: isDev ? 'development' : 'production',
+  optimization: {
+    minimize: !isDev,
+    minimizer,
+  },
+};
 
 export default config;

@@ -19,7 +19,7 @@
       "@widgets/*": ["./src/widgets/*"],
       "@features/*": ["./src/features/*"],
       "@entities/*": ["./src/entities/*"],
-      "@shared/*": ["./src/shared/*"],
+      "@shared/*": ["./src/shared/*"]
     }
   },
   // @TODO
@@ -30,5 +30,5 @@
   //     "module": "CommonJS"
   //   }
   // },
-  "include": ["src/**/*"],
+  "include": ["src/**/*"]
 }

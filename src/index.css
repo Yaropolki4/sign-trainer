@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 body {
-    padding: 0;
-    margin: 0;
-    height: 500px;
-    width: 100%;
-    display: flex;
-    user-select: none;
+  padding: 0;
+  margin: 0;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  user-select: none;
 }
 
 .priver {
-    display: flex;
+  display: flex;
 }
