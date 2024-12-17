@@ -25,7 +25,7 @@ const config = {
         }
     },
     entry: {
-        app: './src/index.ts',
+        app: './src/index.tsx',
     },
     output: {
         path: output,
