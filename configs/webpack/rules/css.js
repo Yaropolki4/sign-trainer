@@ -4,7 +4,7 @@ import tailwindcss from 'tailwindcss';
 import config from '../../../tailwind.config.js';
 
 export const cssRule = {
-    test: /\.(sa|sc|c)ss$/i,
+    test: /\.css$/i,
     use: [
         isDev ? "style-loader" : MiniCssExtractPlugin.loader,
         "css-loader",
