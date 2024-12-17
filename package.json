@@ -50,6 +50,7 @@
     "babel-loader": "^9.2.1",
     "chromatic": "^11.20.2",
     "css-loader": "^7.1.2",
+    "cssnano": "^7.0.6",
     "eslint": "^9.16.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-import-resolver-alias": "^1.1.2",
@@ -87,7 +88,9 @@
     "> 1%",
     "not dead"
   ],
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
