@@ -24,6 +24,7 @@ const config = {
     client: {
       overlay: false,
     },
+    historyApiFallback: true,
   },
   entry: {
     app: './src/app/index.tsx',
@@ -32,6 +33,7 @@ const config = {
     path: output,
     filename: '[name].js',
     clean: true,
+    publicPath: '/',
   },
   resolve: {
     extensions: ['.ts', '.js', '.tsx'],
