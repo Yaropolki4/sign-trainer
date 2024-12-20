@@ -1,6 +1,6 @@
-import { t } from './shared/i18n';
+import { t } from '@shared/i18n';
 
-const App = () => {
+export const App = () => {
   return (
     <div className="container">
       <a
@@ -19,5 +19,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;

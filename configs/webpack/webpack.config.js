@@ -4,6 +4,7 @@ import TerserPlugin from 'terser-webpack-plugin';
 import { rules } from './rules/index.js';
 import { plugins } from './plugins/index.js';
 import { isDev } from './utils.js';
+import { aliases } from './aliases.js';
 
 const output = path.join(process.cwd(), './', 'build/web');
 const minimizer = [];
@@ -25,7 +26,7 @@ const config = {
     },
   },
   entry: {
-    app: './src/index.tsx',
+    app: './src/app/index.tsx',
   },
   output: {
     path: output,
@@ -34,6 +35,7 @@ const config = {
   },
   resolve: {
     extensions: ['.ts', '.js', '.tsx'],
+    alias: aliases,
   },
   devtool: isDev ? 'inline-source-map' : 'source-map',
   plugins,
