@@ -3,17 +3,11 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export const cssRule = {
   test: /\.css$/i,
+  sideEffects: true,
   use: [
     isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
     'css-loader',
-    {
-      loader: 'postcss-loader',
-      options: {
-        postcssOptions: {
-          plugins: ['tailwindcss', 'autoprefixer', 'cssnano'],
-        },
-      },
-    },
+    'postcss-loader',
   ],
   exclude: /node_modules/,
 };

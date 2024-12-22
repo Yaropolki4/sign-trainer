@@ -7,6 +7,7 @@ import { Progress } from '@pages/progress/Progress';
 import { Song } from '@pages/song/Song';
 import { Main } from '@pages/main/Main';
 import { Routers } from '@shared/routes';
+import './svg';
 
 const rootElement = document.getElementById('root');
 

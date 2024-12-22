@@ -5,8 +5,9 @@ import { rules } from './rules/index.js';
 import { plugins } from './plugins/index.js';
 import { isDev } from './utils.js';
 import { aliases } from './aliases.js';
+import { outputPath } from './constants.js';
 
-const output = path.join(process.cwd(), './', 'build/web');
+const output = path.join(process.cwd(), outputPath);
 const minimizer = [];
 
 if (!isDev) {

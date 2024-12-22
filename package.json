@@ -16,7 +16,7 @@
     "test": "pnpm jest --watchAll --config configs/jest.config.ts",
     "test:no-watch": "pnpm jest --config configs/jest.config.ts",
     "storybook": "storybook dev -p 6006 --config-dir configs/.storybook",
-    "build-storybook": "storybook build --config-dir configs/.storybook --output-dir build/storybook-static",
+    "build-storybook": "NODE_ENV=development storybook build --config-dir configs/.storybook --output-dir build/storybook-static",
     "chromatic": "npx chromatic",
     "test-coverage": "COVERAGE_MODE=true pnpm jest --config configs/jest.config.ts",
     "tsc": "tsc",
@@ -87,6 +87,7 @@
     "core-js": "^3.39.0",
     "i18next": "^24.2.0",
     "i18next-browser-languagedetector": "^8.0.2",
+    "mobx-react-lite": "^4.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.0.2"
@@ -96,7 +97,8 @@
     "not dead"
   ],
   "sideEffects": [
-    "*.css"
+    "./src/app/svg.ts",
+    "./src/app/index.tsx"
   ],
   "eslintConfig": {
     "extends": [

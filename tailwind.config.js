@@ -11,18 +11,24 @@ export default {
       warn: '#a60202',
       divider: '#E0E0E0',
       'divider-secondary': '#F1E3D3',
+      button: '#ba741a',
     },
     fontSize: {
-      'text-xl': ['18px', '1.4'],
+      xl: ['18px', '1.4'],
       base: ['14px', '1.4'],
-      'text-sm': ['12px', '1.4'],
-      'text-xs': ['10px', '1.4'],
+      sm: ['12px', '1.4'],
+      xs: ['10px', '1.4'],
     },
     borderWidth: {
-      'border-1': '1px',
+      2: '2px',
     },
     fontFamily: {
       default: ['Inter', 'sans-serif'],
+    },
+    extend: {
+      boxShadow: {
+        accent: 'inset 0 0 0 2px #FCAE4D',
+      },
     },
   },
   plugins: [],

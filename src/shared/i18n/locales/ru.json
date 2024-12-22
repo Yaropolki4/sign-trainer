@@ -1,6 +1,5 @@
 {
-  "welcome": {
-    "ddd": "добро"
-  },
-  "description": "Это локализованное приложение."
+  "search": {
+    "placeholder": "Поиск"
+  }
 }

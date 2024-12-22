@@ -1,4 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
+import { aliases } from '../webpack/aliases';
+import { svgChunkWebpackPlugin } from '../webpack/plugins/svgChunkWebpackPlugin';
+import { svgRule } from '../webpack/rules/svg';
 
 const config: StorybookConfig = {
   stories: [
@@ -15,6 +18,27 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-webpack5',
     options: {},
+  },
+  swc: () => ({
+    jsc: {
+      transform: {
+        react: {
+          runtime: 'automatic',
+        },
+      },
+    },
+  }),
+  webpackFinal: config => {
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      ...aliases,
+    };
+
+    config.plugins?.push(svgChunkWebpackPlugin);
+    config.module?.rules?.push(svgRule);
+
+    return config;
   },
 };
 export default config;

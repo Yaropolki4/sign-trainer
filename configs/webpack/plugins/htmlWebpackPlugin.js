@@ -1,6 +1,7 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import fs from 'fs';
+import { outputPath } from '../constants.js';
 
 function formatTags(tags) {
   return tags.reduce((item, index) => {
@@ -14,7 +15,7 @@ function formatTags(tags) {
 
 export const htmlWebpackPlugin = new HTMLWebpackPlugin({
   templateContent: ({ htmlWebpackPlugin }) => {
-    const spritePath = path.join(process.cwd(), './build/app.svg');
+    const spritePath = path.join(process.cwd(), `${outputPath}/app.svg`);
     const spriteContent = fs.existsSync(spritePath)
       ? fs.readFileSync(spritePath, 'utf-8')
       : '';
@@ -39,9 +40,7 @@ export const htmlWebpackPlugin = new HTMLWebpackPlugin({
           <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
         </head>
         <body>
-          <div style="display: none;">
-            ${spriteContent}
-          </div>
+          ${spriteContent}
           <div id="root" />
           ${formatTags(scriptTags)}
         </body>
