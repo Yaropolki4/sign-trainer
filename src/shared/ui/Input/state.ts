@@ -1,3 +1,4 @@
+import { bind } from '../../decorators/bind';
 import { makeAutoObservable } from 'mobx';
 
 class InputState {
@@ -7,6 +8,7 @@ class InputState {
     makeAutoObservable(this);
   }
 
+  @bind
   public setQuery(query: string) {
     this.query = query;
   }

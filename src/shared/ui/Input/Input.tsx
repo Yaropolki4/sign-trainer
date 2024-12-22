@@ -13,8 +13,9 @@ const DEFAULT_CONTROLS_PADDING = 4;
 
 export const Input: React.FC<InputProps> = observer(
   ({ onChange, controls }) => {
+    const { setQuery, query } = inputState;
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      inputState.setQuery(event.target.value);
+      setQuery(event.target.value);
       onChange?.();
     };
 
@@ -34,8 +35,8 @@ export const Input: React.FC<InputProps> = observer(
     });
 
     const handleIconButtonClick = React.useCallback(() => {
-      inputState.setQuery('');
-    }, []);
+      setQuery('');
+    }, [setQuery]);
 
     return (
       <div className="relative flex w-full items-center">
@@ -43,7 +44,7 @@ export const Input: React.FC<InputProps> = observer(
           type="text"
           className="ui-input bg-fill-secondary placeholder:text-secondary focus:shadow-accent h-9 flex-grow rounded-md py-2.5 pl-3 pr-[var(--ui-input-controls-width)] focus:outline-none"
           placeholder={t('search.placeholder')}
-          value={inputState.query}
+          value={query}
           onChange={handleChange}
         />
         <div
