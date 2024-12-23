@@ -52,15 +52,17 @@ export const Input: React.FC<InputProps> = observer(
           className="absolute right-0 flex flex-row pr-2.5"
         >
           {controls}
-          <div className="ml-1 flex items-center">
-            <IconButton
-              onClick={handleIconButtonClick}
-              name="close"
-              transparent
-              paddingless
-              size="s"
-            />
-          </div>
+          {query ? (
+            <div className="ml-1 flex items-center">
+              <IconButton
+                onClick={handleIconButtonClick}
+                name="close"
+                transparent
+                paddingless
+                size="s"
+              />
+            </div>
+          ) : null}
         </div>
       </div>
     );

@@ -4,16 +4,14 @@ import { svgChunkWebpackPlugin } from '../webpack/plugins/svgChunkWebpackPlugin'
 import { svgRule } from '../webpack/rules/svg';
 
 const config: StorybookConfig = {
-  stories: [
-    '../../src/**/*.mdx',
-    '../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)',
-  ],
+  stories: ['../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     '@storybook/addon-webpack5-compiler-swc',
     '@storybook/addon-onboarding',
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
+    '@storybook/addon-viewport',
   ],
   framework: {
     name: '@storybook/react-webpack5',
@@ -25,6 +23,10 @@ const config: StorybookConfig = {
         react: {
           runtime: 'automatic',
         },
+      },
+      parser: {
+        syntax: 'typescript',
+        decorators: true,
       },
     },
   }),

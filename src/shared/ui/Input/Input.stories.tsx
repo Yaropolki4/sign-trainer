@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn, userEvent, within } from '@storybook/test';
 import { Input } from './Input';
-import { fn } from '@storybook/test';
 
 const meta: Meta<typeof Input> = {
   component: Input,
@@ -20,5 +20,44 @@ export const WithControls: Story = {
   args: {
     controls: <div className="bg-accent h-4 w-10" />,
     onChange: fn(),
+  },
+};
+
+export const InputWithText: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const emailInput = canvas.getByRole('textbox');
+
+    await userEvent.type(emailInput, 'example', {
+      delay: 1,
+    });
+  },
+};
+
+export const InputWithLargeText: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const emailInput = canvas.getByRole('textbox');
+
+    await userEvent.type(emailInput, 'example'.repeat(20), {
+      delay: 1,
+    });
+  },
+};
+
+export const InputWithLargeTextAndControls: Story = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    const emailInput = canvas.getByRole('textbox');
+
+    await userEvent.type(emailInput, 'example'.repeat(20), {
+      delay: 1,
+    });
+  },
+  args: {
+    controls: <div className="bg-accent h-4 w-10" />,
   },
 };
