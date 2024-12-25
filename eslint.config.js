@@ -97,7 +97,6 @@ export default [
       'max-classes-per-file': ['error', 1],
       'max-depth': 'error',
       'max-lines': 'error',
-      'max-lines-per-function': ['error', 100],
       'max-params': 'error',
       'no-alert': 'warn',
       'no-console': 'error',

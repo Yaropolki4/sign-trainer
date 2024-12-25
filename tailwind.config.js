@@ -14,12 +14,14 @@ export default {
       button: '#ba741a',
     },
     fontSize: {
-      xl: ['18px', '1.4'],
+      xxl: ['18px', '1.4'],
+      xl: ['16px', '1.4'],
       base: ['14px', '1.4'],
       sm: ['12px', '1.4'],
       xs: ['10px', '1.4'],
     },
     borderWidth: {
+      1: '1px',
       2: '2px',
     },
     fontFamily: {

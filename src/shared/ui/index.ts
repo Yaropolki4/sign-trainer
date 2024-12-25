@@ -1,2 +1,4 @@
-export { Input } from './Input';
-export { Button } from './Button';
+export * from './Input';
+export * from './Button';
+export * from './Image';
+export * from './Spinner';

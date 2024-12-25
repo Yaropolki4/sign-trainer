@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react-lite';
 import { t } from '@shared/i18n';
-import { inputState } from './state';
 import { IconButton } from '../IconButton';
 import React from 'react';
 
@@ -13,7 +12,7 @@ const DEFAULT_CONTROLS_PADDING = 4;
 
 export const Input: React.FC<InputProps> = observer(
   ({ onChange, controls }) => {
-    const { setQuery, query } = inputState;
+    const [query, setQuery] = React.useState('');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       setQuery(event.target.value);
       onChange?.();

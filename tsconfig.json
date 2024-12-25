@@ -12,6 +12,7 @@
     "jsx": "react-jsx",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "typeRoots": ["./node_modules/@types"],
     "noEmit": true,
     "paths": {
       "@app/*": ["./src/app/*"],
@@ -22,13 +23,5 @@
       "@shared/*": ["./src/shared/*"]
     }
   },
-  // @TODO
-  // ts-node works only with CommonJS but svg-chunk-webpack-plugin works only with ES modules, it's conflict
-  // I don’t yet see an urgent need to write a webpack config on ts
-  // "ts-node": {
-  //   "compilerOptions": {
-  //     "module": "CommonJS"
-  //   }
-  // },
   "include": ["src/**/*"]
 }
