@@ -22,6 +22,7 @@ export default {
     },
     borderWidth: {
       1: '1px',
+      1.5: '1.5px',
       2: '2px',
     },
     fontFamily: {

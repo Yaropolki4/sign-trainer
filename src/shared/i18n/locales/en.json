@@ -1,5 +1,8 @@
 {
   "search": {
     "placeholder": "Search"
+  },
+  "sidebar": {
+    "recent": "Recent"
   }
 }

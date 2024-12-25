@@ -1,5 +1,8 @@
 {
   "search": {
     "placeholder": "Поиск"
+  },
+  "sidebar": {
+    "recent": "Недавние"
   }
 }

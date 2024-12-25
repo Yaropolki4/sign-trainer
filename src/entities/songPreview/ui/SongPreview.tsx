@@ -16,12 +16,12 @@ export const SongPreview: React.FC<SongPreviewProps> = observer(
       <div
         className={`flex w-full p-3 ${shadow} cursor-pointer items-center overflow-hidden`}
       >
-        <div className="border-1 border-fill-secondary mr-3 h-12 w-12 min-w-12">
+        <div className="mr-3 h-12 w-12 min-w-12 border-1 border-fill-secondary">
           <SongAvatar songId={songId} />
         </div>
-        <div className="mx-1 my-2 flex flex-col overflow-hidden text-nowrap">
+        <div className="mx-1 flex flex-col overflow-hidden text-nowrap">
           <div className="overflow-hidden text-ellipsis text-xl">{title}</div>
-          <div className="text-secondary overflow-hidden text-ellipsis text-sm">
+          <div className="overflow-hidden text-ellipsis text-sm text-secondary">
             {author}
           </div>
         </div>
