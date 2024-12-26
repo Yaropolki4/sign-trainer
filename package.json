@@ -45,6 +45,7 @@
     "@types/node": "^22.10.1",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
+    "@types/react-window": "^1.8.8",
     "@types/webpack": "^5.28.5",
     "@types/webpack-env": "^1.18.5",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
@@ -84,8 +85,7 @@
     "webpack": "^5.97.1",
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0",
-    "@types/react-window": "^1.8.8"
+    "webpack-dev-server": "^5.1.0"
   },
   "dependencies": {
     "axios": "^1.7.9",
@@ -97,6 +97,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.0.2",
+    "react-virtualized-auto-sizer": "^1.0.25",
     "react-window": "^1.8.11"
   },
   "browserslist": [

@@ -6,6 +6,10 @@
   body {
     @apply font-default text-base text-primary;
   }
+
+  input {
+    min-width: 30px;
+  }
 }
 
 body {

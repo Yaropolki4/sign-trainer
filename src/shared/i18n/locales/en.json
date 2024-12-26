@@ -3,6 +3,7 @@
     "placeholder": "Search"
   },
   "sidebar": {
-    "recent": "Recent"
+    "recent": "Recent",
+    "favorite": "Favorites"
   }
 }

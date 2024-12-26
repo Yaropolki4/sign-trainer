@@ -3,6 +3,7 @@
     "placeholder": "Поиск"
   },
   "sidebar": {
-    "recent": "Недавние"
+    "recent": "Недавние",
+    "favorite": "Избранное"
   }
 }

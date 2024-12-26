@@ -8,7 +8,7 @@ interface InputProps {
   controls?: React.ReactNode;
 }
 
-const DEFAULT_CONTROLS_PADDING = 4;
+const DEFAULT_CONTROLS_PADDING = 8;
 
 export const Input: React.FC<InputProps> = observer(
   ({ onChange, controls }) => {
@@ -41,7 +41,7 @@ export const Input: React.FC<InputProps> = observer(
       <div className="relative flex w-full items-center">
         <input
           type="text"
-          className="ui-input bg-fill-secondary placeholder:text-secondary focus:shadow-accent h-9 flex-grow rounded-md py-2.5 pl-3 pr-[var(--ui-input-controls-width)] focus:outline-none"
+          className="ui-input h-9 flex-grow rounded-md bg-fill-secondary py-2.5 pl-3 pr-[var(--ui-input-controls-width)] placeholder:text-secondary focus:shadow-accent focus:outline-none"
           placeholder={t('search.placeholder')}
           value={query}
           onChange={handleChange}
@@ -52,7 +52,7 @@ export const Input: React.FC<InputProps> = observer(
         >
           {controls}
           {query ? (
-            <div className="ml-1 flex items-center">
+            <div className="ml-3 flex items-center">
               <IconButton
                 onClick={handleIconButtonClick}
                 name="close"

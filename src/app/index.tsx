@@ -8,21 +8,26 @@ import { Song } from '@pages/song/Song';
 import { Main } from '@pages/main/Main';
 import { Routers } from '@shared/routes';
 import './svg';
+import { bootstrap } from './bootstrap';
+import { StoreProvider } from './store';
 
 const rootElement = document.getElementById('root');
 
 const root = ReactDOM.createRoot(rootElement!);
+bootstrap();
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path={Routers.MAIN} element={<Layout />}>
-          <Route index element={<Main />} />
-          <Route path={Routers.SONG} element={<Song />} />
-          <Route path={Routers.PROGRESS} element={<Progress />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <StoreProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path={Routers.MAIN} element={<Layout />}>
+            <Route index element={<Main />} />
+            <Route path={Routers.SONG} element={<Song />} />
+            <Route path={Routers.PROGRESS} element={<Progress />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </StoreProvider>
   </React.StrictMode>,
 );

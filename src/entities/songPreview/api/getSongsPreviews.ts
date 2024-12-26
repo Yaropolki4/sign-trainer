@@ -1,9 +1,9 @@
 import { httpTransport } from '@shared/api';
 import { AxiosResponse } from 'axios';
-import { SongPreviewModel } from '../model';
+import { SongGroup, SongPreviewModel } from '../model';
 
-export const getSongsPreviews = (): Promise<
-  AxiosResponse<SongPreviewModel[]>
-> => {
-  return httpTransport.get('/songs.json');
+export const getSongsPreviews = (
+  group: SongGroup,
+): Promise<AxiosResponse<SongPreviewModel[]>> => {
+  return httpTransport.get(`/songs/${group}.json`);
 };

@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite';
 import { SongPreviewModel } from '../model';
 import { FixedSizeList as List } from 'react-window';
 import { SongPreview } from './SongPreview';
+import React from 'react';
 
 interface SongsListProps {
   songs: SongPreviewModel[];
@@ -28,15 +29,8 @@ export const SongsList: React.FC<SongsListProps> = observer(
             width={songWidth}
           >
             {({ index, style }) => (
-              <div style={style}>
-                <SongPreview
-                  key={songs[index].songId}
-                  song={{
-                    title: songs[index].title,
-                    author: songs[index].author,
-                    songId: songs[index].songId,
-                  }}
-                />
+              <div key={songs[index].songId} style={style}>
+                <SongPreview key={songs[index].songId} song={songs[index]} />
               </div>
             )}
           </List>

@@ -1,1 +1,2 @@
-export { SongPreviewModel } from './songPreview';
+export { SongPreviewModel } from './SongPreviewModel';
+export { SongGroup } from './SongGroup';
