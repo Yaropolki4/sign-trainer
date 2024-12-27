@@ -14,7 +14,7 @@ export const SongPreview: React.FC<SongPreviewProps> = observer(
 
     return (
       <div
-        className={`flex w-full p-3 ${shadow} cursor-pointer items-center overflow-hidden`}
+        className={`flex w-full p-3 ${shadow} hover:bg-fill-hover-primary active:bg-fill-active-primary cursor-pointer items-center overflow-hidden`}
       >
         <div className="mr-3 h-12 w-12 min-w-12 border-1 border-fill-secondary">
           <SongAvatar songId={songId} />

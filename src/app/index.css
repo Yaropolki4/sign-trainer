@@ -2,25 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --hoverable-icon-color: #3f3a36;
+  --hoverable-icon-stroke-width: 1;
+}
+
 @layer base {
   body {
     @apply font-default text-base text-primary;
+    user-select: none;
   }
 
   input {
     min-width: 30px;
   }
-}
-
-body {
-  padding: 0;
-  margin: 0;
-  height: 500px;
-  width: 100%;
-  display: flex;
-  user-select: none;
-}
-
-.priver {
-  display: flex;
 }

@@ -19,14 +19,26 @@ export const SidebarActionPanel: React.FC = observer(() => {
 
   const controls = (
     <div className="flex gap-1">
-      <IconButton name="recent" onClick={selectRecentSongs} paddingless />
-      <IconButton name="heart" onClick={selectFavoriteSongs} paddingless />
-      <IconButton name="add" paddingless />
+      <IconButton
+        name="recent"
+        onClick={selectRecentSongs}
+        paddingless
+        transparent
+        hoverable
+      />
+      <IconButton
+        name="heart"
+        onClick={selectFavoriteSongs}
+        paddingless
+        transparent
+        hoverable
+      />
+      <IconButton name="add" paddingless transparent hoverable />
     </div>
   );
 
   return (
-    <div className="px-3 py-4">
+    <div className="hoverable px-3 py-4">
       <Input controls={controls} />
     </div>
   );

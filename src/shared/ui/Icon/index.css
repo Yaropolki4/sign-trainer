@@ -1,0 +1,14 @@
+.hoverable-icon {
+  --hoverable-icon-color: #a47c53;
+  --hoverable-icon-stroke-width: 1;
+}
+
+.hoverable-icon:hover {
+  --hoverable-icon-color: #fcae4d;
+  --hoverable-icon-stroke-width: 2;
+}
+
+.hoverable-icon:active {
+  --hoverable-icon-color: #ff9719;
+  --hoverable-icon-stroke-width: 2;
+}
