@@ -4,12 +4,7 @@ import React from 'react';
 import { Image } from './Image';
 import { Spinner } from '../Spinner';
 import { Icon } from '../Icon';
-
-enum LoadStatus {
-  LOADING = 'loading',
-  SUCCESS = 'success',
-  ERROR = 'error',
-}
+import { LoadStatus } from '@shared/api';
 
 type AjaxImageState =
   | { loadStatus: LoadStatus.LOADING }

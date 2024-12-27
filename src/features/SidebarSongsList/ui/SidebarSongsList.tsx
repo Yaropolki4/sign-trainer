@@ -5,19 +5,34 @@ import { observer } from 'mobx-react-lite';
 import { t } from '@shared/i18n';
 import { Icon, ListTitle } from '@shared/ui';
 import AutoSizer from 'react-virtualized-auto-sizer';
+import React from 'react';
 
 export const SidebarSongsList: React.FC = observer(() => {
   const { recentSongsState, favoriteSongsState, selectedGroupState } =
     useStore();
-  const { songs: recentSongs } = recentSongsState;
-  const { songs: favoriteSongs } = favoriteSongsState;
+  const { songs: recentSongs, loadStatus: recentSongsLoadStatus } =
+    recentSongsState;
+  const { songs: favoriteSongs, loadStatus: favoriteSongsLoadStatus } =
+    favoriteSongsState;
   const { group } = selectedGroupState;
   const isRecent = group === SongGroup.RECENT;
+
+  const emptyScreen = React.useMemo(
+    () => (
+      <div className="flex flex-col items-center justify-center">
+        <Icon name="empty" size="auto" />
+        <span className="text-xxl font-semibold text-secondary">
+          {t(isRecent ? 'sidebar.recent.empty' : 'sidebar.favorite.empty')}
+        </span>
+      </div>
+    ),
+    [isRecent],
+  );
 
   return (
     <>
       <ListTitle
-        text={t(isRecent ? 'sidebar.recent' : 'sidebar.favorite')}
+        text={t(isRecent ? 'sidebar.recent.title' : 'sidebar.favorite.title')}
         leftAddon={<Icon name={isRecent ? 'recent' : 'heart'} size="m" />}
       />
       <div className="grow">
@@ -26,8 +41,11 @@ export const SidebarSongsList: React.FC = observer(() => {
             return (
               <SongsList
                 songs={isRecent ? recentSongs : favoriteSongs}
+                status={
+                  isRecent ? recentSongsLoadStatus : favoriteSongsLoadStatus
+                }
                 songWidth={width}
-                emptyScreen={<div>EMPTY</div>}
+                emptyScreen={emptyScreen}
                 listHeight={height}
               />
             );

@@ -16,3 +16,9 @@ export function isServerErrorStatus(status: number) {
     status < SERVER_ERROR_UPPER_BOUNDARY
   );
 }
+
+export enum LoadStatus {
+  LOADING = 'loading',
+  SUCCESS = 'success',
+  ERROR = 'error',
+}

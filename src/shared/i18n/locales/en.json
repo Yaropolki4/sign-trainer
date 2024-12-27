@@ -3,7 +3,13 @@
     "placeholder": "Search"
   },
   "sidebar": {
-    "recent": "Recent",
-    "favorite": "Favorites"
+    "recent": {
+      "title": "Recent",
+      "empty": "You don't have any recent songs"
+    },
+    "favorite": {
+      "title": "Favorites",
+      "empty": "You don't have any favorite songs"
+    }
   }
 }
