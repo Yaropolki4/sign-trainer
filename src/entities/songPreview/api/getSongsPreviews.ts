@@ -5,5 +5,5 @@ import { SongGroup, SongPreviewModel } from '../model';
 export const getSongsPreviews = (
   group: SongGroup,
 ): Promise<AxiosResponse<SongPreviewModel[]>> => {
-  return httpTransport.get(`/songs/${group}.json`);
+  return httpTransport.get(`/songs/${group}`);
 };
