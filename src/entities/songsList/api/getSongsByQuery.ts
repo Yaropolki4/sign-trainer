@@ -1,14 +1,13 @@
 import { httpTransport } from '@shared/api';
 import { AxiosResponse } from 'axios';
-import { SongPreviewModel } from '../model';
 
 interface GetSongsByQueryParams {
   query: string;
 }
 
-export const getSongsByQuery = (
+export const getSongsByQuery = <T>(
   signal: Maybe<AbortSignal>,
   params: GetSongsByQueryParams,
-): Promise<AxiosResponse<SongPreviewModel[]>> => {
+): Promise<AxiosResponse<T>> => {
   return httpTransport.get(`/songs/search`, { params, signal });
 };

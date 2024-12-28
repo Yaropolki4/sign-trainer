@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { SidebarSongsList } from './SongsList';
+import { SidebarSongsList } from '@entities/songsList';
 import { t } from '@shared/i18n';
 import { Icon, ListTitle } from '@shared/ui';
 import React from 'react';

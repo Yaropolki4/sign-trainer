@@ -1,4 +1,5 @@
-import { SongGroup, SongPreviewModel } from '@entities/songPreview';
+import { SongPreviewModel } from '@entities/songPreview';
+import { SongGroup } from '@entities/songsList';
 import { LoadStatus } from '@shared/api';
 import { useStore } from '@shared/store';
 import { Input, IconButton } from '@shared/ui';

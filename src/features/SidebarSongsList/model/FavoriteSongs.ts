@@ -1,8 +1,5 @@
-import {
-  getSongsPreviews,
-  SongGroup,
-  type SongPreviewModel,
-} from '@entities/songPreview';
+import { type SongPreviewModel } from '@entities/songPreview';
+import { getSongsPreviews, SongGroup } from '@entities/songsList';
 import { LoadStatus } from '@shared/api';
 import { bind } from '@shared/decorators';
 import { makeAutoObservable } from 'mobx';
@@ -17,7 +14,7 @@ export class FavoriteSongs {
 
   @bind
   public fetchSongs() {
-    return getSongsPreviews(SongGroup.FAVORITE)
+    return getSongsPreviews<SongPreviewModel[]>(SongGroup.FAVORITE)
       .then(response => {
         this.songs = response.data;
         this.loadStatus = LoadStatus.SUCCESS;

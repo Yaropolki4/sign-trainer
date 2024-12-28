@@ -1,0 +1,1 @@
+export { SelectedGroup } from './SelectedGroup';

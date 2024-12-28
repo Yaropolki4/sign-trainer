@@ -1,4 +1,4 @@
-import { SongGroup } from '@entities/songPreview';
+import { SongGroup } from '@entities/songsList';
 import { bind } from '@shared/decorators';
 import { makeAutoObservable } from 'mobx';
 

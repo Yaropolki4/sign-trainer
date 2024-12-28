@@ -1,7 +1,9 @@
-import { FavoriteSongs } from './states/FavoriteSongs';
-import { RecentSongs } from './states/RecentSongs';
-import { SearchSongs } from './states/SearchSongs';
-import { SelectedGroup } from './states/SelectedGroup';
+import {
+  FavoriteSongs,
+  RecentSongs,
+  SearchSongs,
+} from '@features/SidebarSongsList';
+import { SelectedGroup } from '@features/SidebarActionPanel';
 
 export const store = {
   favoriteSongsState: new FavoriteSongs(),

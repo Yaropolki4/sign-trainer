@@ -1,4 +1,4 @@
-import { SongGroup } from '@entities/songPreview';
+import { SongGroup } from '@entities/songsList';
 import { SidebarActionPanel } from '@features/SidebarActionPanel';
 import {
   FavoriteSongsList,

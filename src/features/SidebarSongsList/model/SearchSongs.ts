@@ -1,4 +1,5 @@
-import { getSongsByQuery, type SongPreviewModel } from '@entities/songPreview';
+import type { SongPreviewModel } from '@entities/songPreview';
+import { getSongsByQuery } from '@entities/songsList';
 import { LoadStatus } from '@shared/api';
 import { bind } from '@shared/decorators';
 import { makeAutoObservable } from 'mobx';
@@ -13,7 +14,7 @@ export class SearchSongs {
 
   @bind
   public fetchSongs(signal: Maybe<AbortSignal>, query: string) {
-    return getSongsByQuery(signal, { query });
+    return getSongsByQuery<SongPreviewModel[]>(signal, { query });
   }
 
   @bind
