@@ -10,6 +10,10 @@
     "favorite": {
       "title": "Favorites",
       "empty": "You don't have any favorite songs"
+    },
+    "search": {
+      "title": "Search results",
+      "empty": "Nothing found"
     }
   }
 }

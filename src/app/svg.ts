@@ -4,3 +4,4 @@ import '@shared/assets/icons/icon-recent.svg';
 import '@shared/assets/icons/icon-heart.svg';
 import '@shared/assets/icons/icon-add.svg';
 import '@shared/assets/icons/icon-empty.svg';
+import '@shared/assets/icons/icon-search.svg';

@@ -1,1 +1,1 @@
-export { t } from './i18n';
+export { t, I18nKey } from './i18n';

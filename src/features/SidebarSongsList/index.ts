@@ -1,1 +1,1 @@
-export { SidebarSongsList } from './ui';
+export * from './ui';

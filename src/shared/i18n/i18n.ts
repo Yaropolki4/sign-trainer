@@ -16,5 +16,6 @@ i18nLib.use(LanguageDetector).init({
   returnEmptyString: false,
 });
 
-export const t = (key: NestedKeyOf<typeof enTranslation>): string =>
-  i18nLib.t(key);
+export type I18nKey = NestedKeyOf<typeof enTranslation>;
+
+export const t = (key: I18nKey): string => i18nLib.t(key);

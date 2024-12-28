@@ -4,7 +4,7 @@ import { IconButton } from '../IconButton';
 import React from 'react';
 
 interface InputProps {
-  onChange?(): void;
+  onChange?(value: string): void;
   controls?: React.ReactNode;
 }
 
@@ -14,8 +14,10 @@ export const Input: React.FC<InputProps> = observer(
   ({ onChange, controls }) => {
     const [query, setQuery] = React.useState('');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setQuery(event.target.value);
-      onChange?.();
+      const { value } = event.target;
+
+      setQuery(value);
+      onChange?.(value);
     };
 
     const controlsRef = React.useRef<HTMLDivElement>(null);
@@ -35,13 +37,14 @@ export const Input: React.FC<InputProps> = observer(
 
     const handleIconButtonClick = React.useCallback(() => {
       setQuery('');
-    }, [setQuery]);
+      onChange?.('');
+    }, [onChange]);
 
     return (
       <div className="relative flex w-full items-center">
         <input
           type="text"
-          className="ui-input hover:bg-fill-hover-secondary active:fill-active-secondary h-9 flex-grow rounded-md bg-fill-secondary py-2.5 pl-3 pr-[var(--ui-input-controls-width)] placeholder:text-secondary focus:shadow-accent focus:outline-none"
+          className="ui-input active:fill-active-secondary h-9 flex-grow rounded-md bg-fill-secondary py-2.5 pl-3 pr-[var(--ui-input-controls-width)] placeholder:text-secondary hover:bg-fill-hover-secondary focus:shadow-accent focus:outline-none"
           placeholder={t('search.placeholder')}
           value={query}
           onChange={handleChange}
