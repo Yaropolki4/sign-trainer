@@ -1,5 +1,5 @@
 import { SongGroup } from '@entities/songsList';
-import { bind } from '@shared/decorators';
+import { bind } from '@shared/lib/decorators';
 import { makeAutoObservable } from 'mobx';
 
 export class SelectedGroup {

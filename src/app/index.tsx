@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 import { Progress } from '@pages/progress/Progress';
 import { Song } from '@pages/song/Song';
 import { Main } from '@pages/main/Main';
-import { Routers } from '@shared/routes';
+import { Routers } from '@shared/constants';
 import './svg';
 import { QueryClient, QueryClientProvider } from 'react-query';
 

@@ -1,7 +1,7 @@
 import { type SongPreviewModel } from '@entities/songPreview';
 import { getSongsPreviews, SongGroup } from '@entities/songsList';
 import { LoadStatus } from '@shared/api';
-import { bind } from '@shared/decorators';
+import { bind } from '@shared/lib';
 import { makeAutoObservable } from 'mobx';
 
 export class RecentSongsStore {

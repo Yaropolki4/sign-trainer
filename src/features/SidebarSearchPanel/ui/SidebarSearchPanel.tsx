@@ -1,7 +1,7 @@
 import { SongPreviewModel } from '@entities/songPreview';
 import { getSongsByQuery, SidebarSongsList } from '@entities/songsList';
 import { LoadStatus } from '@shared/api';
-import { t } from '@shared/i18n';
+import { t } from '@shared/lib';
 import { Icon, Input, ListTitle } from '@shared/ui';
 import { observer } from 'mobx-react-lite';
 import React from 'react';

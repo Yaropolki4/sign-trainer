@@ -1,4 +1,4 @@
-import { AjaxImage } from '@shared/ui/Image/AjaxImage';
+import { AjaxImage } from '@shared/ui';
 import { observer } from 'mobx-react-lite';
 import { getSongAvatar } from '../api';
 import React from 'react';

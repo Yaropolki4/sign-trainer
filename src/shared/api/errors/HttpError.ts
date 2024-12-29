@@ -1,4 +1,4 @@
-import { BaseError } from '../../errors';
+import { BaseError } from '../../lib/errors';
 
 export class HttpError extends BaseError {
   // eslint-disable-next-line no-useless-constructor

@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import { t } from '@shared/i18n';
+import { t } from '../../lib';
 import { IconButton } from '../IconButton';
 import React from 'react';
 

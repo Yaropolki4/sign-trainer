@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { HttpError } from './errors/HttpError';
 import { isClientErrorStatus, isServerErrorStatus } from './utils';
-import { isNumber, isObject } from '../typeUtils';
+import { isNumber, isObject } from '../lib/typeUtils';
 
 interface ValidError {
   response: {
