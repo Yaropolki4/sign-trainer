@@ -4,7 +4,7 @@ import { LoadStatus } from '@shared/api';
 import { bind } from '@shared/decorators';
 import { makeAutoObservable } from 'mobx';
 
-export class RecentSongs {
+export class RecentSongsStore {
   public songs: SongPreviewModel[] = [];
   public loadStatus: LoadStatus = LoadStatus.LOADING;
 

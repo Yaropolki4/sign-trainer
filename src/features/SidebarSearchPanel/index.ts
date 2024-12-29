@@ -1,0 +1,1 @@
+export { SidebarSearchPanel } from './ui';

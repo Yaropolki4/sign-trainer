@@ -55,7 +55,7 @@ export const SongsList: React.FC<SongsListProps> = observer(
 
     return (
       <div
-        className="flex items-center justify-center"
+        className="flex items-center justify-center bg-fill-primary"
         style={{ width: songWidth, height: listHeight }}
         role="list"
       >

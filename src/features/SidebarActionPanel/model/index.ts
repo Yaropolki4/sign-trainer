@@ -1,1 +1,0 @@
-export { SelectedGroup } from './SelectedGroup';

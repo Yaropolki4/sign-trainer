@@ -1,1 +1,0 @@
-export { SidebarActionPanel } from './SidebarActionPanel';

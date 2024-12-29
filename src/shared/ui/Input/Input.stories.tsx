@@ -18,7 +18,7 @@ export const Default: Story = {
 
 export const WithControls: Story = {
   args: {
-    controls: <div className="bg-accent h-4 w-10" />,
+    renderControls: () => <div className="h-4 w-10 bg-accent" />,
     onChange: fn(),
   },
 };
@@ -58,6 +58,6 @@ export const InputWithLargeTextAndControls: Story = {
     });
   },
   args: {
-    controls: <div className="bg-accent h-4 w-10" />,
+    renderControls: () => <div className="h-4 w-10 bg-accent" />,
   },
 };

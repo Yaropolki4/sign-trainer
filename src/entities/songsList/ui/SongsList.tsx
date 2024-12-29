@@ -30,7 +30,7 @@ export const SidebarSongsList: React.FC<SongsListProps> = observer(props => {
   return (
     <>
       {title}
-      <div className="grow">
+      <div className="h-full grow">
         <AutoSizer>
           {({ height, width }) => {
             return (

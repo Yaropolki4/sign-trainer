@@ -5,13 +5,13 @@ import React from 'react';
 
 interface InputProps {
   onChange?(value: string): void;
-  controls?: React.ReactNode;
+  renderControls?(): React.ReactNode;
 }
 
 const DEFAULT_CONTROLS_PADDING = 8;
 
 export const Input: React.FC<InputProps> = observer(
-  ({ onChange, controls }) => {
+  ({ onChange, renderControls }) => {
     const [query, setQuery] = React.useState('');
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target;
@@ -53,7 +53,7 @@ export const Input: React.FC<InputProps> = observer(
           ref={controlsRef}
           className="absolute right-0 flex flex-row pr-2.5"
         >
-          {controls}
+          {renderControls?.()}
           {query ? (
             <div className="ml-3 flex items-center">
               <IconButton

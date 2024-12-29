@@ -8,7 +8,7 @@ interface ListTitleProps {
 export const ListTitle: React.FC<ListTitleProps> = observer(
   ({ text, leftAddon }) => {
     return (
-      <div className="border-b-1.5 flex h-10 w-full items-center gap-1.5 border-b-divider-secondary px-3 py-2 text-xl">
+      <div className="flex h-10 w-full items-center gap-1.5 border-b-1.5 border-b-divider-secondary bg-fill-primary px-3 py-2 text-xl">
         {leftAddon}
         <div>{text}</div>
       </div>

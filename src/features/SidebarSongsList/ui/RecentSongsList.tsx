@@ -3,11 +3,11 @@ import { SidebarSongsList } from '@entities/songsList';
 import { t } from '@shared/i18n';
 import { Icon, ListTitle } from '@shared/ui';
 import React from 'react';
-import { useStore } from '@shared/store';
+import { useSongsList } from '../lib';
 
 export const RecentSongsList: React.FC = observer(() => {
-  const { recentSongsState } = useStore();
-  const { songs, loadStatus } = recentSongsState;
+  const { recent } = useSongsList();
+  const { songs, loadStatus } = recent;
 
   const title = React.useMemo(() => {
     return (
