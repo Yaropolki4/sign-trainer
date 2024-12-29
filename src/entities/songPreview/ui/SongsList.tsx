@@ -1,8 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import { SongPreviewModel } from '../model';
-import { FixedSizeList as List } from 'react-window';
+import { FixedSizeList as List, ListChildComponentProps } from 'react-window';
 import { SongPreview } from './SongPreview';
-import React from 'react';
+import React, { ComponentType } from 'react';
 import { LoadStatus } from '@shared/api';
 import { Icon, Spinner } from '@shared/ui';
 
@@ -18,6 +18,19 @@ const SONG_PREVIEW_HEIGHT = 72;
 
 export const SongsList: React.FC<SongsListProps> = observer(
   ({ songs, songWidth, emptyScreen, listHeight, status }) => {
+    const ItemRenderer: ComponentType<
+      ListChildComponentProps<SongPreviewModel[]>
+    > = React.useCallback(
+      ({ index, style }) => {
+        return (
+          <div key={songs[index].songId} style={style}>
+            <SongPreview key={songs[index].songId} song={songs[index]} />
+          </div>
+        );
+      },
+      [songs],
+    );
+
     const content = React.useMemo(() => {
       const renderSongs = () => {
         return songs.length ? (
@@ -27,11 +40,7 @@ export const SongsList: React.FC<SongsListProps> = observer(
             itemSize={SONG_PREVIEW_HEIGHT}
             width={songWidth}
           >
-            {({ index, style }) => (
-              <div key={songs[index].songId} style={style}>
-                <SongPreview key={songs[index].songId} song={songs[index]} />
-              </div>
-            )}
+            {ItemRenderer}
           </List>
         ) : (
           emptyScreen
@@ -51,7 +60,14 @@ export const SongsList: React.FC<SongsListProps> = observer(
         default:
           return <Icon name="error" size="auto" />;
       }
-    }, [emptyScreen, listHeight, songWidth, songs, status]);
+    }, [
+      ItemRenderer,
+      emptyScreen,
+      listHeight,
+      songWidth,
+      songs.length,
+      status,
+    ]);
 
     return (
       <div

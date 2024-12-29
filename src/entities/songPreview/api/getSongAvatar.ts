@@ -1,5 +1,7 @@
 import { httpTransport } from '@shared/api';
 
+export const imagesPath = 'images/';
+
 export const getSongAvatar = (songId: string) => {
-  return httpTransport.get(`/images/${songId}`, { responseType: 'blob' });
+  return httpTransport.get(`${imagesPath}${songId}`, { responseType: 'blob' });
 };

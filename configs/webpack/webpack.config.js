@@ -29,6 +29,7 @@ const config = {
   },
   entry: {
     app: './src/app/index.tsx',
+    'service-worker': './src/app/serviceWorker/service-worker.ts',
   },
   output: {
     path: output,

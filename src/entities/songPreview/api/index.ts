@@ -1,1 +1,1 @@
-export { getSongAvatar } from './getSongAvatar';
+export { getSongAvatar, imagesPath } from './getSongAvatar';
