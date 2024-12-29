@@ -1,4 +1,4 @@
-import { SongPreviewModel } from '@entities/songPreview';
+import { SongPreview, SongPreviewModel } from '@entities/songPreview';
 import { getSongsByQuery, SidebarSongsList } from '@entities/songsList';
 import { LoadStatus } from '@shared/api';
 import { t } from '@shared/lib';
@@ -14,6 +14,7 @@ interface SidebarSearchPanelProps {
 
 const EMPTY_ARRAY: SongPreviewModel[] = [];
 const SEARCH_REQUEST_STALE_TIME = 30000;
+const SEARCH_SONG_ITEM_HEIGHT = 72;
 
 export const SidebarSearchPanel: React.FC<SidebarSearchPanelProps> = observer(
   ({ renderControls, searchListOffset }) => {
@@ -48,6 +49,10 @@ export const SidebarSearchPanel: React.FC<SidebarSearchPanelProps> = observer(
       );
     }, []);
 
+    const renderSongComponent = React.useCallback((song: SongPreviewModel) => {
+      return <SongPreview song={song} />;
+    }, []);
+
     return (
       <>
         <div className="hoverable px-3 py-4">
@@ -63,6 +68,8 @@ export const SidebarSearchPanel: React.FC<SidebarSearchPanelProps> = observer(
               songs={songs}
               status={status}
               emptyScreenText={t('sidebar.search.empty')}
+              songItemHeight={SEARCH_SONG_ITEM_HEIGHT}
+              renderSongComponent={renderSongComponent}
             />
           </div>
         ) : null}

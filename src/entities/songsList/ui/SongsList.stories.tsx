@@ -12,6 +12,8 @@ export default meta;
 
 type Story = StoryObj<typeof SongsList>;
 
+const SONG_ITEM_HEIGTH = 72;
+
 export const Default: Story = {
   args: {
     songs: testCase,
@@ -19,6 +21,12 @@ export const Default: Story = {
     listHeight: 500,
     emptyScreen: <div>Empty screen</div>,
     status: LoadStatus.SUCCESS,
+    renderSongComponent: song => (
+      <div style={{ height: SONG_ITEM_HEIGTH, width: '100%' }}>
+        {JSON.stringify(song)}
+      </div>
+    ),
+    songItemHeight: SONG_ITEM_HEIGTH,
   },
 };
 
@@ -28,6 +36,12 @@ export const EmptyList: Story = {
     songWidth: 300,
     listHeight: 500,
     emptyScreen: <div>Empty screen</div>,
+    renderSongComponent: song => (
+      <div style={{ height: SONG_ITEM_HEIGTH, width: '100%' }}>
+        {JSON.stringify(song)}
+      </div>
+    ),
+    songItemHeight: SONG_ITEM_HEIGTH,
     status: LoadStatus.SUCCESS,
   },
 };
@@ -39,7 +53,14 @@ export const ScrollList: Story = {
     listHeight: 500,
     emptyScreen: <div>Empty screen</div>,
     status: LoadStatus.SUCCESS,
+    renderSongComponent: song => (
+      <div style={{ height: SONG_ITEM_HEIGTH, width: '100%' }}>
+        {JSON.stringify(song)}
+      </div>
+    ),
+    songItemHeight: SONG_ITEM_HEIGTH,
   },
+  //@ts-ignore
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
@@ -57,6 +78,12 @@ export const Loading: Story = {
     listHeight: 500,
     emptyScreen: <div>Empty screen</div>,
     status: LoadStatus.LOADING,
+    renderSongComponent: song => (
+      <div style={{ height: SONG_ITEM_HEIGTH, width: '100%' }}>
+        {JSON.stringify(song)}
+      </div>
+    ),
+    songItemHeight: SONG_ITEM_HEIGTH,
   },
 };
 
@@ -67,5 +94,11 @@ export const Error: Story = {
     listHeight: 500,
     emptyScreen: <div>Empty screen</div>,
     status: LoadStatus.ERROR,
+    renderSongComponent: song => (
+      <div style={{ height: SONG_ITEM_HEIGTH, width: '100%' }}>
+        {JSON.stringify(song)}
+      </div>
+    ),
+    songItemHeight: SONG_ITEM_HEIGTH,
   },
 };
