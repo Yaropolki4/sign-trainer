@@ -16,9 +16,7 @@ function formatTags(tags) {
 export const htmlWebpackPlugin = new HTMLWebpackPlugin({
   templateContent: ({ htmlWebpackPlugin }) => {
     const spritePath = path.join(process.cwd(), `${outputPath}/app.svg`);
-    const spriteContent = fs.existsSync(spritePath)
-      ? fs.readFileSync(spritePath, 'utf-8')
-      : '';
+    const spriteContent = fs.existsSync(spritePath) ? fs.readFileSync(spritePath, 'utf-8') : '';
     const cssTags = htmlWebpackPlugin.files.css.map(css => {
       return `<link href="${css}" rel="stylesheet">`;
     });

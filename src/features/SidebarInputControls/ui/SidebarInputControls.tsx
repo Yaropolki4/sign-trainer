@@ -16,20 +16,8 @@ export const SidebarInputControls: React.FC = () => {
 
   return (
     <div className="flex gap-1">
-      <IconButton
-        name="recent"
-        onClick={setRecentSongs}
-        paddingless
-        transparent
-        hoverable
-      />
-      <IconButton
-        name="heart"
-        onClick={setFavoriteSongs}
-        paddingless
-        transparent
-        hoverable
-      />
+      <IconButton name="recent" onClick={setRecentSongs} paddingless transparent hoverable />
+      <IconButton name="heart" onClick={setFavoriteSongs} paddingless transparent hoverable />
       <IconButton name="add" paddingless transparent hoverable />
     </div>
   );

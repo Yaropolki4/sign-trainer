@@ -13,12 +13,7 @@ export const RecentSongsList: React.FC = observer(() => {
   const { songs, loadStatus } = recent;
 
   const title = React.useMemo(() => {
-    return (
-      <ListTitle
-        text={t('sidebar.recent.title')}
-        leftAddon={<Icon name={'recent'} size="m" />}
-      />
-    );
+    return <ListTitle text={t('sidebar.recent.title')} leftAddon={<Icon name={'recent'} size="m" />} />;
   }, []);
 
   const renderSongComponent = React.useCallback((song: SongPreviewModel) => {

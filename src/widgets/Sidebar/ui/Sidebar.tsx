@@ -1,16 +1,7 @@
 import { SongGroup } from '@entities/songsList';
 import { SidebarSearchPanel } from '@features/SidebarSearchPanel';
-import {
-  SelectedGroupProvider,
-  SidebarInputControls,
-  useSelectedGroup,
-} from '@features/SidebarInputControls';
-import {
-  FavoriteSongsList,
-  RecentSongsList,
-  SongsListProvider,
-  useSongsList,
-} from '@features/SidebarSongsList';
+import { SelectedGroupProvider, SidebarInputControls, useSelectedGroup } from '@features/SidebarInputControls';
+import { FavoriteSongsList, RecentSongsList, SongsListProvider, useSongsList } from '@features/SidebarSongsList';
 import { Divider } from '@shared/ui';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
@@ -57,10 +48,7 @@ const Sidebar: React.FC = observer(() => {
   return (
     <div className="flex h-lvh w-3/12 flex-col border-r-1 border-divider">
       <div ref={topNodeRef}>
-        <SidebarSearchPanel
-          searchListOffset={offset}
-          renderControls={renderControls}
-        />
+        <SidebarSearchPanel searchListOffset={offset} renderControls={renderControls} />
         <Divider />
       </div>
       {renderSongsList()}

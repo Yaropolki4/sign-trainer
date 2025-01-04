@@ -11,12 +11,7 @@ export default [
   reactPlugin.configs.flat['jsx-runtime'],
   eslintConfigPrettier,
   {
-    ignores: [
-      '**/configs/*',
-      '**/build/*',
-      '**/test-coverage-report/*',
-      'tsconfig.json',
-    ],
+    ignores: ['**/configs/*', '**/build/*', '**/test-coverage-report/*', 'tsconfig.json'],
   },
   {
     languageOptions: {
@@ -146,23 +141,12 @@ export default [
             },
             {
               target: './src/entities',
-              from: [
-                './src/app',
-                './src/pages',
-                './src/widgets',
-                './src/features',
-              ],
+              from: ['./src/app', './src/pages', './src/widgets', './src/features'],
               message: 'FSD violation',
             },
             {
               target: './src/shared',
-              from: [
-                './src/app',
-                './src/pages',
-                './src/widgets',
-                './src/features',
-                './src/entities',
-              ],
+              from: ['./src/app', './src/pages', './src/widgets', './src/features', './src/entities'],
               message: 'FSD violation',
             },
           ],

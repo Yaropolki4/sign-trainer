@@ -7,10 +7,7 @@ const meta: Meta<typeof AjaxImage> = {
   component: AjaxImage,
   decorators: [
     Story => (
-      <div
-        className="flex items-center justify-center"
-        style={{ width: 200, height: 200 }}
-      >
+      <div className="flex items-center justify-center" style={{ width: 200, height: 200 }}>
         <Story />
       </div>
     ),

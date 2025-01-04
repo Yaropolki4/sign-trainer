@@ -36,6 +36,9 @@ export default {
       boxShadow: {
         accent: 'inset 0 0 0 2px #FCAE4D',
       },
+      padding: {
+        4.5: '18px',
+      },
     },
   },
   plugins: [],

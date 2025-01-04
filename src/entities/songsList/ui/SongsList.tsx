@@ -30,39 +30,25 @@ interface SongsListProps {
 }
 
 export const SongsList: React.FC<SongsListProps> = observer(
-  ({
-    songs,
-    songWidth,
-    emptyScreen,
-    listHeight,
-    status,
-    renderSongComponent,
-    songItemHeight,
-  }) => {
-    const ItemRenderer: ComponentType<
-      ListChildComponentProps<ReturnType<typeof renderSongComponent>>
-    > = React.useCallback(
-      ({ index, style }) => {
-        return (
-          <div key={songs[index].songId} style={style}>
-            {renderSongComponent(songs[index])}
-          </div>
-        );
-      },
-      [renderSongComponent, songs],
-    );
+  ({ songs, songWidth, emptyScreen, listHeight, status, renderSongComponent, songItemHeight }) => {
+    const ItemRenderer: ComponentType<ListChildComponentProps<ReturnType<typeof renderSongComponent>>> =
+      React.useCallback(
+        ({ index, style }) => {
+          return (
+            <div key={songs[index].songId} style={style}>
+              {renderSongComponent(songs[index])}
+            </div>
+          );
+        },
+        [renderSongComponent, songs],
+      );
 
     const songsLength = songs.length;
 
     const content = React.useMemo(() => {
       const renderSongs = () => {
         return songsLength ? (
-          <List
-            height={listHeight}
-            itemCount={songsLength}
-            itemSize={songItemHeight}
-            width={songWidth}
-          >
+          <List height={listHeight} itemCount={songsLength} itemSize={songItemHeight} width={songWidth}>
             {ItemRenderer}
           </List>
         ) : (
@@ -83,15 +69,7 @@ export const SongsList: React.FC<SongsListProps> = observer(
         default:
           return <Icon name="error" size="auto" />;
       }
-    }, [
-      ItemRenderer,
-      emptyScreen,
-      listHeight,
-      songItemHeight,
-      songWidth,
-      songsLength,
-      status,
-    ]);
+    }, [ItemRenderer, emptyScreen, listHeight, songItemHeight, songWidth, songsLength, status]);
 
     return (
       <div
@@ -105,50 +83,39 @@ export const SongsList: React.FC<SongsListProps> = observer(
   },
 );
 
-export const SidebarSongsList: React.FC<SidebarSongsListProps> = observer(
-  props => {
-    const {
-      emptyScreenText,
-      title,
-      songs,
-      status,
-      renderSongComponent,
-      songItemHeight,
-    } = props;
+export const SidebarSongsList: React.FC<SidebarSongsListProps> = observer(props => {
+  const { emptyScreenText, title, songs, status, renderSongComponent, songItemHeight } = props;
 
-    const emptyScreen = React.useMemo(
-      () => (
-        <div className="flex flex-col items-center justify-center">
-          <Icon name="empty" size="auto" />
-          <span className="text-xxl font-semibold text-secondary">
-            {emptyScreenText}
-          </span>
-        </div>
-      ),
-      [emptyScreenText],
-    );
+  const emptyScreen = React.useMemo(
+    () => (
+      <div className="flex flex-col items-center justify-center">
+        <Icon name="empty" size="auto" />
+        <span className="text-xxl font-semibold text-secondary">{emptyScreenText}</span>
+      </div>
+    ),
+    [emptyScreenText],
+  );
 
-    return (
-      <>
-        {title}
-        <div className="h-full grow">
-          <AutoSizer>
-            {({ height, width }) => {
-              return (
-                <SongsList
-                  songs={songs}
-                  status={status}
-                  songWidth={width}
-                  emptyScreen={emptyScreen}
-                  listHeight={height}
-                  renderSongComponent={renderSongComponent}
-                  songItemHeight={songItemHeight}
-                />
-              );
-            }}
-          </AutoSizer>
-        </div>
-      </>
-    );
-  },
-);
+  return (
+    <>
+      {title}
+      <div className="h-full grow">
+        <AutoSizer>
+          {({ height, width }) => {
+            return (
+              <SongsList
+                songs={songs}
+                status={status}
+                songWidth={width}
+                emptyScreen={emptyScreen}
+                listHeight={height}
+                renderSongComponent={renderSongComponent}
+                songItemHeight={songItemHeight}
+              />
+            );
+          }}
+        </AutoSizer>
+      </div>
+    </>
+  );
+});

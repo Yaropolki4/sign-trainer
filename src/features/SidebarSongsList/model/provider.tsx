@@ -10,12 +10,6 @@ const store = {
 
 export const SongsListContext = createContext(store);
 
-export const SongsListProvider: React.FC<React.PropsWithChildren> = observer(
-  ({ children }) => {
-    return (
-      <SongsListContext.Provider value={store}>
-        {children}
-      </SongsListContext.Provider>
-    );
-  },
-);
+export const SongsListProvider: React.FC<React.PropsWithChildren> = observer(({ children }) => {
+  return <SongsListContext.Provider value={store}>{children}</SongsListContext.Provider>;
+});

@@ -10,10 +10,7 @@ export class BaseError extends Error {
     this.params = params;
   }
 
-  public static is<E extends Error>(
-    this: Constructor<E>,
-    error: unknown,
-  ): error is E {
+  public static is<E extends Error>(this: Constructor<E>, error: unknown): error is E {
     return error instanceof this;
   }
 }

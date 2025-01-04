@@ -13,12 +13,7 @@ export const FavoriteSongsList: React.FC = observer(() => {
   const { songs, loadStatus } = favorite;
 
   const title = React.useMemo(() => {
-    return (
-      <ListTitle
-        text={t('sidebar.favorite.title')}
-        leftAddon={<Icon name={'heart'} size="m" />}
-      />
-    );
+    return <ListTitle text={t('sidebar.favorite.title')} leftAddon={<Icon name={'heart'} size="m" />} />;
   }, []);
 
   const renderSongComponent = React.useCallback((song: SongPreviewModel) => {

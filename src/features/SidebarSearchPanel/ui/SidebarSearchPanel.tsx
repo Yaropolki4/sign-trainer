@@ -30,23 +30,14 @@ export const SidebarSearchPanel: React.FC<SidebarSearchPanelProps> = observer(
     );
 
     const songs = data?.data || EMPTY_ARRAY;
-    const status = isLoading
-      ? LoadStatus.LOADING
-      : error
-        ? LoadStatus.ERROR
-        : LoadStatus.SUCCESS;
+    const status = isLoading ? LoadStatus.LOADING : error ? LoadStatus.ERROR : LoadStatus.SUCCESS;
 
     const handleChange = React.useCallback((value: string) => {
       setQuery(value);
     }, []);
 
     const title = React.useMemo(() => {
-      return (
-        <ListTitle
-          text={t('sidebar.search.title')}
-          leftAddon={<Icon name={'search'} size="m" />}
-        />
-      );
+      return <ListTitle text={t('sidebar.search.title')} leftAddon={<Icon name={'search'} size="m" />} />;
     }, []);
 
     const renderSongComponent = React.useCallback((song: SongPreviewModel) => {
@@ -55,14 +46,11 @@ export const SidebarSearchPanel: React.FC<SidebarSearchPanelProps> = observer(
 
     return (
       <>
-        <div className="hoverable px-3 py-4">
+        <div className="hoverable px-3 py-4.5">
           <Input renderControls={renderControls} onChange={handleChange} />
         </div>
         {query ? (
-          <div
-            style={{ top: searchListOffset }}
-            className="absolute bottom-0 z-10 w-1/4"
-          >
+          <div style={{ top: searchListOffset }} className="absolute bottom-0 z-10 w-1/4">
             <SidebarSongsList
               title={title}
               songs={songs}

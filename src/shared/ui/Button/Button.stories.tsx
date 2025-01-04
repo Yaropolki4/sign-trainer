@@ -44,6 +44,6 @@ export const WithLeftAddon: Story = {
   args: {
     text: 'with left addon',
     onClick: fn(),
-    leftAddon: <div className="bg-accent h-4 w-4" />,
+    leftAddon: <div className="h-4 w-4 bg-accent" />,
   },
 };

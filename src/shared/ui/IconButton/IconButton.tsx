@@ -3,16 +3,11 @@ import { Button } from '../Button';
 import { Icon, IconProps } from '../Icon/Icon';
 import { ButtonProps } from '../Button/Button';
 
-type IconButtonProps = Pick<
-  ButtonProps,
-  'text' | 'transparent' | 'paddingless' | 'onClick'
-> &
+type IconButtonProps = Pick<ButtonProps, 'text' | 'transparent' | 'paddingless' | 'onClick'> &
   Pick<IconProps, 'name' | 'size' | 'hoverable'>;
 
 export const IconButton: React.FC<IconButtonProps> = observer(props => {
-  const leftAddon = (
-    <Icon name={props.name} size={props.size} hoverable={props.hoverable} />
-  );
+  const leftAddon = <Icon name={props.name} size={props.size} hoverable={props.hoverable} />;
 
   return (
     <Button

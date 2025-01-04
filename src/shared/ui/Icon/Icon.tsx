@@ -9,20 +9,14 @@ export interface IconProps {
   hoverable?: boolean;
 }
 
-export const Icon: React.FC<IconProps> = observer(
-  ({ name, size, hoverable }) => {
-    const formattedSize = mapIconSizes[size ?? 'm'];
+export const Icon: React.FC<IconProps> = observer(({ name, size, hoverable }) => {
+  const formattedSize = mapIconSizes[size ?? 'm'];
 
-    return (
-      <div>
-        <svg
-          width={formattedSize}
-          height={formattedSize}
-          className={hoverable ? 'hoverable-icon' : ''}
-        >
-          <use href={`#icon-${name}`}></use>
-        </svg>
-      </div>
-    );
-  },
-);
+  return (
+    <div>
+      <svg width={formattedSize} height={formattedSize} className={hoverable ? 'hoverable-icon' : ''}>
+        <use href={`#icon-${name}`}></use>
+      </svg>
+    </div>
+  );
+});
