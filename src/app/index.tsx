@@ -9,6 +9,7 @@ import { Main } from '@pages/main/Main';
 import { Routers } from '@shared/constants';
 import './svg';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { NotesStoreProvider } from '@entities/songNotes';
 
 const rootElement = document.getElementById('root');
 
@@ -23,15 +24,17 @@ const queryClient = new QueryClient();
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Routes>
-          <Route path={Routers.MAIN} element={<Layout />}>
-            <Route index element={<Main />} />
-            <Route path={Routers.SONG} element={<Song />} />
-            <Route path={Routers.PROGRESS} element={<Progress />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <NotesStoreProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path={Routers.MAIN} element={<Layout />}>
+              <Route index element={<Main />} />
+              <Route path={Routers.SONG} element={<Song />} />
+              <Route path={Routers.PROGRESS} element={<Progress />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </NotesStoreProvider>
     </QueryClientProvider>
   </React.StrictMode>,
 );

@@ -55,7 +55,7 @@ export const ScrollList: Story = {
     const scrollerContainer = canvas.getByRole('list');
     const scroller = scrollerContainer.childNodes?.[0] as HTMLDivElement;
 
-    await scroller.scrollBy(0, 200);
+    scroller.scrollBy(0, 200);
   },
 };
 

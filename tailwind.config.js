@@ -25,6 +25,7 @@ export default {
       xs: ['10px', '1.4'],
     },
     borderWidth: {
+      0.5: '0.5px',
       1: '1px',
       1.5: '1.5px',
       2: '2px',
@@ -38,6 +39,9 @@ export default {
       },
       padding: {
         4.5: '18px',
+      },
+      gridTemplateColumns: {
+        100: 'repeat(100, minmax(0, 1fr))',
       },
     },
   },

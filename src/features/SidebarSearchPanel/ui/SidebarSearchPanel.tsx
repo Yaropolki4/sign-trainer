@@ -1,11 +1,13 @@
 import { SongPreview, SongPreviewModel } from '@entities/songPreview';
 import { getSongsByQuery, SidebarSongsList } from '@entities/songsList';
 import { LoadStatus } from '@shared/api';
+import { Routers } from '@shared/constants';
 import { t } from '@shared/lib';
 import { Icon, Input, ListTitle } from '@shared/ui';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { useQuery } from 'react-query';
+import { useNavigate } from 'react-router';
 
 interface SidebarSearchPanelProps {
   renderControls(): React.ReactNode;
@@ -40,9 +42,21 @@ export const SidebarSearchPanel: React.FC<SidebarSearchPanelProps> = observer(
       return <ListTitle text={t('sidebar.search.title')} leftAddon={<Icon name={'search'} size="m" />} />;
     }, []);
 
-    const renderSongComponent = React.useCallback((song: SongPreviewModel) => {
-      return <SongPreview song={song} />;
-    }, []);
+    const navigate = useNavigate();
+
+    const handleNavigate = React.useCallback(
+      (id: string) => {
+        navigate(Routers.SONG.replace(':id', id));
+      },
+      [navigate],
+    );
+
+    const renderSongComponent = React.useCallback(
+      (song: SongPreviewModel) => {
+        return <SongPreview song={song} onNavigate={handleNavigate} />;
+      },
+      [handleNavigate],
+    );
 
     return (
       <>
