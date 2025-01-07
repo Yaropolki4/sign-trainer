@@ -1,9 +1,9 @@
 import { makeAutoObservable } from 'mobx';
-import { Note } from './Note';
-import { getSongNotes } from '../api';
+import { getSongNotesWithInfo } from '../api';
+import { NotesWithInfo } from './SongWithInfo';
 
 export class NotesStore {
-  private songsNotes = new Map<string, Note[]>();
+  private songsNotes = new Map<string, NotesWithInfo>();
 
   constructor() {
     makeAutoObservable(this);
@@ -14,7 +14,7 @@ export class NotesStore {
   }
 
   public fetchNotesBySongId(id: string) {
-    return getSongNotes(id).then(data => {
+    return getSongNotesWithInfo(id).then(data => {
       this.songsNotes.set(id, data.data);
 
       return data;

@@ -7,4 +7,3 @@ export {
   getNoteWidth,
   MAX_VISIBLE_DURATION,
 } from './notesLayoutUtils';
-export { useSongsNotes } from './useSongsNotes';

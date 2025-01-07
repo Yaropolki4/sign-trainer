@@ -4,12 +4,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { Progress } from '@pages/progress/Progress';
-import { Song } from '@pages/song/Song';
+import { Song, NotesStoreProvider } from '@pages/song';
 import { Main } from '@pages/main/Main';
 import { Routers } from '@shared/constants';
 import './svg';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { NotesStoreProvider } from '@entities/songNotes';
+import { Create } from '@pages/create';
 
 const rootElement = document.getElementById('root');
 
@@ -31,6 +31,7 @@ root.render(
               <Route index element={<Main />} />
               <Route path={Routers.SONG} element={<Song />} />
               <Route path={Routers.PROGRESS} element={<Progress />} />
+              <Route path={Routers.CREATE} element={<Create />} />
             </Route>
           </Routes>
         </BrowserRouter>
