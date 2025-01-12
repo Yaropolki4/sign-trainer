@@ -1,15 +1,50 @@
+import { Note } from '@entities/songNotes';
 import {
   getNoteHeight,
-  getNotesBoundsAndDurations,
+  getNotesBounds,
   getNoteTopOffset,
   getNoteWidth,
   MAX_VISIBLE_DURATION,
   VERTICAL_NOTES_OFFSET,
+  getNotesDuration,
 } from '../notesLayoutUtils';
 
 describe('notesLayoutUtils', () => {
-  describe('getNotesBoundsAndDurations', () => {
-    test('calculates bounds and duration for a list of notes', () => {
+  describe('getNotesDuration', () => {
+    it('should return 0 for an empty array', () => {
+      const notes: Note[] = [];
+      const result = getNotesDuration(notes);
+      expect(result).toBe(0);
+    });
+
+    it('should return the correct sum of durations', () => {
+      const notes: Note[] = [
+        { duration: 2, tone: 60 },
+        { duration: 3, tone: 60 },
+        { duration: 5, tone: 60 },
+      ];
+      const result = getNotesDuration(notes);
+      expect(result).toBe(10);
+    });
+
+    it('should return the correct sum when there is only one note', () => {
+      const notes: Note[] = [{ duration: 7, tone: 60 }];
+      const result = getNotesDuration(notes);
+      expect(result).toBe(7);
+    });
+
+    it('should return 0 for an array of notes with duration 0', () => {
+      const notes: Note[] = [
+        { duration: 0, tone: 60 },
+        { duration: 0, tone: 60 },
+        { duration: 0, tone: 60 },
+      ];
+      const result = getNotesDuration(notes);
+      expect(result).toBe(0);
+    });
+  });
+  describe('getNotesBounds', () => {
+    test('calculates duration for a list of notes', () => {
       const notes = [
         { tone: 60, duration: 1 },
         { tone: 62, duration: 2 },
@@ -17,24 +52,22 @@ describe('notesLayoutUtils', () => {
         { tone: 65, duration: 3 },
       ];
 
-      const result = getNotesBoundsAndDurations(notes);
+      const result = getNotesBounds(notes);
 
       expect(result).toEqual({
         lowerNotesBound: 58,
         upperNotesBound: 65,
-        sumDurations: 7.5,
       });
     });
 
     test('handles a single note correctly', () => {
       const notes = [{ tone: 60, duration: 4 }];
 
-      const result = getNotesBoundsAndDurations(notes);
+      const result = getNotesBounds(notes);
 
       expect(result).toEqual({
         lowerNotesBound: 60,
         upperNotesBound: 60,
-        sumDurations: 4,
       });
     });
 
@@ -43,28 +76,26 @@ describe('notesLayoutUtils', () => {
       const notes = [];
 
       //@ts-ignore
-      const result = getNotesBoundsAndDurations(notes);
+      const result = getNotesBounds(notes);
 
       expect(result).toEqual({
         lowerNotesBound: Infinity,
         upperNotesBound: -Infinity,
-        sumDurations: 0,
       });
     });
 
-    test('handles mixed tones and durations', () => {
+    test('handles mixed tones', () => {
       const notes = [
         { tone: -10, duration: 1 },
         { tone: 20, duration: 2 },
         { tone: 0, duration: 0 },
       ];
 
-      const result = getNotesBoundsAndDurations(notes);
+      const result = getNotesBounds(notes);
 
       expect(result).toEqual({
         lowerNotesBound: -10,
         upperNotesBound: 20,
-        sumDurations: 3,
       });
     });
 
@@ -74,12 +105,11 @@ describe('notesLayoutUtils', () => {
         { tone: 59.2, duration: 0.75 },
       ];
 
-      const result = getNotesBoundsAndDurations(notes);
+      const result = getNotesBounds(notes);
 
       expect(result).toEqual({
         lowerNotesBound: 59.2,
         upperNotesBound: 60.5,
-        sumDurations: 2,
       });
     });
   });

@@ -6,13 +6,11 @@ interface NotesBounds {
   upperNotesBound: number;
 }
 
-export const getNotesBoundsAndDurations = (notes: Note[]) => {
-  let sumDurations = 0;
+export const getNotesBounds = (notes: Note[]) => {
   let lowerNotesBound = Infinity;
   let upperNotesBound = -Infinity;
 
   for (const note of notes) {
-    sumDurations += note.duration;
     lowerNotesBound = Math.min(lowerNotesBound, note.tone);
     upperNotesBound = Math.max(upperNotesBound, note.tone);
   }
@@ -20,8 +18,13 @@ export const getNotesBoundsAndDurations = (notes: Note[]) => {
   return {
     lowerNotesBound,
     upperNotesBound,
-    sumDurations,
   };
+};
+
+export const getNotesDuration = (notes: Note[]) => {
+  return notes.reduce((sum, note) => {
+    return sum + note.duration;
+  }, 0);
 };
 
 export const VERTICAL_NOTES_OFFSET = 2;

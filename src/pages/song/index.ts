@@ -1,2 +1,2 @@
 export { NotesStoreProvider } from './model';
-export { Song } from './ui';
+export { SongContainer } from './ui';

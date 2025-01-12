@@ -6,8 +6,8 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import { LoadStatus } from '@shared/api';
 import { NotesWithInfo } from '../model';
-import { useSongsNotes } from '../lib';
-import { SongNotes } from '@entities/songNotes';
+import { useRequestAnimationFrame, useSongsNotes } from '../lib';
+import { getNotesDuration, SongNotes, ScrollerHandle } from '@entities/songNotes';
 
 type FetchNotesState =
   | { loadStatus: LoadStatus.LOADING }
@@ -22,7 +22,91 @@ const renderSettings = () => {
   );
 };
 
-export const Song: React.FC = observer(() => {
+interface SongProps {
+  notesWithInfo: NotesWithInfo;
+  id: string;
+}
+
+const Song: React.FC<SongProps> = observer(({ notesWithInfo, id }) => {
+  const scrollerRef = React.useRef<ScrollerHandle>(null);
+  const { notes, info } = notesWithInfo;
+
+  const notesDuration = React.useMemo(() => {
+    return getNotesDuration(notes);
+  }, [notes]);
+
+  const resetScroll = React.useCallback(() => {
+    const scroller = scrollerRef.current;
+
+    if (scroller) {
+      scroller.resetScroll();
+      scroller.enableScroll();
+    }
+  }, []);
+
+  const onAnimationTick = React.useCallback((time: number) => {
+    const scroller = scrollerRef.current;
+
+    if (scroller) {
+      scroller.setScroll(time);
+    }
+  }, []);
+
+  const {
+    setActive,
+    resetAnimation,
+    isAnimationActive: active,
+    time,
+  } = useRequestAnimationFrame({ onReset: resetScroll, onAnimationTick }, notesDuration, [id]);
+
+  const handlePlay = React.useCallback(() => {
+    const scroller = scrollerRef.current;
+
+    if (scroller) {
+      scroller.disableScroll();
+    }
+
+    setActive(true);
+  }, [setActive]);
+
+  const handleStop = React.useCallback(() => {
+    const scroller = scrollerRef.current;
+
+    if (scroller) {
+      scroller.enableScroll();
+    }
+
+    setActive(false);
+  }, [setActive]);
+
+  const handleReset = React.useCallback(() => {
+    resetAnimation();
+  }, [resetAnimation]);
+
+  const handleRecord = React.useCallback(() => {}, []);
+
+  return (
+    <div className="flex w-3/4 flex-grow flex-col">
+      <div className="flex justify-between px-9">
+        <div className="basis-96 overflow-hidden">
+          <SongPreview interractable={false} song={info} />
+        </div>
+        <SongPlayerControls
+          active={active}
+          onPlay={handlePlay}
+          onStop={handleStop}
+          onReset={handleReset}
+          onRecord={handleRecord}
+          renderSettings={renderSettings}
+        />
+      </div>
+      <Divider />
+      <SongNotes notesDuration={notesDuration} ref={scrollerRef} time={time.value} notes={notes} />
+    </div>
+  );
+});
+
+export const SongContainer: React.FC = observer(() => {
   const { id } = useParams();
 
   if (!id) {
@@ -33,6 +117,8 @@ export const Song: React.FC = observer(() => {
   const songsNotes = useSongsNotes();
 
   React.useEffect(() => {
+    setState({ loadStatus: LoadStatus.LOADING });
+
     const songNotes = songsNotes.getNotesBySongId(id);
 
     if (songNotes) {
@@ -53,32 +139,12 @@ export const Song: React.FC = observer(() => {
 
   const { loadStatus } = state;
 
-  const renderSongNotes = () => {
-    switch (loadStatus) {
-      case LoadStatus.LOADING:
-        return <Spinner />;
-      case LoadStatus.ERROR:
-        return <Icon name="error" />;
-      case LoadStatus.SUCCESS:
-        return (
-          <>
-            <div className="flex justify-between px-9">
-              <div className="basis-96 overflow-hidden">
-                <SongPreview interractable={false} song={state.notesWithInfo.info} />
-              </div>
-              <SongPlayerControls
-                onPlay={() => {}}
-                onStop={() => {}}
-                onRecord={() => {}}
-                renderSettings={renderSettings}
-              />
-            </div>
-            <Divider />
-            <SongNotes notes={state.notesWithInfo.notes} />
-          </>
-        );
-    }
-  };
-
-  return <div className="flex w-3/4 flex-grow flex-col">{renderSongNotes()}</div>;
+  switch (loadStatus) {
+    case LoadStatus.LOADING:
+      return <Spinner />;
+    case LoadStatus.ERROR:
+      return <Icon name="error" />;
+    case LoadStatus.SUCCESS:
+      return <Song notesWithInfo={state.notesWithInfo} id={id} />;
+  }
 });

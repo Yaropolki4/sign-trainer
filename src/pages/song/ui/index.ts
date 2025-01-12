@@ -1,1 +1,1 @@
-export { Song } from './Song';
+export { SongContainer } from './Song';

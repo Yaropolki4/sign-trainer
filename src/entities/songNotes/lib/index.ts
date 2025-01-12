@@ -1,6 +1,7 @@
 export { generateGradient, formatToCssRGB } from './colorUtils';
 export {
-  getNotesBoundsAndDurations,
+  getNotesBounds,
+  getNotesDuration,
   getNoteHeight,
   getNotesColors,
   getNoteTopOffset,

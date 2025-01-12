@@ -76,3 +76,19 @@ export const LargeDifference: Story = {
     ],
   },
 };
+
+export const WithSliderOffset: Story = {
+  args: {
+    notes: [
+      {
+        tone: 10,
+        duration: 2000,
+      },
+      {
+        tone: 46,
+        duration: 2000,
+      },
+    ],
+    time: 1000,
+  },
+};

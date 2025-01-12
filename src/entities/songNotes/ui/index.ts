@@ -1,1 +1,1 @@
-export { SongNotes } from './SongNotes';
+export { SongNotes, ScrollerHandle } from './SongNotes';

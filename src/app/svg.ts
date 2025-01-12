@@ -6,6 +6,7 @@ import '@shared/assets/icons/icon-add.svg';
 import '@shared/assets/icons/icon-empty.svg';
 import '@shared/assets/icons/icon-search.svg';
 import '@shared/assets/icons/icon-play.svg';
-import '@shared/assets/icons/icon-stop.svg';
+import '@shared/assets/icons/icon-reset.svg';
 import '@shared/assets/icons/icon-record.svg';
 import '@shared/assets/icons/icon-settings.svg';
+import '@shared/assets/icons/icon-stop.svg';
